@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project</title>
+    <link rel="stylesheet" href="../css/sheet.css">
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #9c32ea 30%, #f67162 70%);
+        }
+    </style>
+</head>
+<body>
+    <div class="con">
+        <h1>Login Form</h1>
+        <div class="change">
+            <span class="active">Login</span>
+            <span class="more">SignUp</span>
+        </div>
+        <form>
+            <input type="email" placeholder="Email Address">
+            <input type="password" placeholder="Password">
+            <input type="password" placeholder="Confirm password" style="display: none;" class="pass">
+            <input type="submit" value="Login" class="signPass">
+            <span> <a href="#">Forget password ?</a> </span>
+        </form>
+    </div>
+<script>
+    let sign = document.querySelectorAll('.change span'),
+        confirm = document.querySelector('form .pass'),
+        theButton = document.querySelector('form .signPass');
+        forgit = document.querySelector('form span')
+    sign.forEach((v) => {
+        v.onclick = function(){
+            sign.forEach((e) =>{
+                e.classList.remove('active')
+            })
+            v.classList.add('active')
+
+            if (v.classList.contains('more')){
+                confirm.style.display = 'block';
+                theButton.setAttribute('value', 'Sign Up')
+                forgit.style.display = 'none'
+
+            }else{
+                confirm.style.display = 'none'
+                theButton.setAttribute('value', 'Login')
+                forgit.style.display = 'block'
+            }
+        }
+    })
+</script>   
+</body>
+</html>
